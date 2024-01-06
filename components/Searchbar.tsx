@@ -14,12 +14,16 @@ const SearchBar = () => {
   const [text, onChangeText] = React.useState("");
 
   return (
-    <View style={styles.container}>
+    <View
+      // style={styles.container}
+      className="w-full p-4 flex flex-row justify-center items-center space-x-2"
+    >
       <TextInput
         onChangeText={onChangeText}
         value={text}
         selectionColor={Colors.black}
         placeholder="what are you looking for?"
+        className="flex-1 m-0"
       />
       <Pressable style={styles.searchBtn}>
         {({ pressed }) => (

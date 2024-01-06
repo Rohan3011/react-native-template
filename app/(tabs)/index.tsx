@@ -3,10 +3,11 @@ import { StyleSheet } from "react-native";
 import EditScreenInfo from "../../components/EditScreenInfo";
 import { Text, View } from "../../components/Themed";
 import { Link } from "expo-router";
-import { ScrollView } from "react-native-gesture-handler";
+import { RefreshControl, ScrollView } from "react-native-gesture-handler";
 import Card from "../../components/Card";
 import SearchBar from "../../components/Searchbar";
 import { useFetch } from "../../hooks/useFetch";
+import { useQuery } from "@tanstack/react-query";
 
 export interface Post {
   userId: number;
@@ -16,14 +17,25 @@ export interface Post {
 }
 
 export default function HomeScreen() {
-  const { data, error } = useFetch<Post[]>(
-    "https://jsonplaceholder.typicode.com/posts"
-  );
+  const { data, isLoading, isError, refetch } = useQuery<Post[]>({
+    queryKey: ["todos"],
+    queryFn: async () => {
+      const resp = await fetch("https://jsonplaceholder.typicode.com/posts");
+      if (!resp.ok) throw new Error("something went wrong!");
+      return await resp.json();
+    },
+  });
+
+  if (isLoading) return <Text>Loading...</Text>;
+  if (isError) return <Text>something went wrong!</Text>;
 
   return (
     <View style={styles.container}>
       <SearchBar />
       <ScrollView
+        refreshControl={
+          <RefreshControl refreshing={isLoading} onRefresh={refetch} />
+        }
         style={styles.scrollContainer}
         showsVerticalScrollIndicator={false}
       >
