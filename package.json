@@ -17,6 +17,8 @@
     "@expo/vector-icons": "^13.0.0",
     "@react-native-community/netinfo": "^11.2.1",
     "@react-navigation/native": "^6.0.2",
+    "@rneui/base": "^4.0.0-rc.8",
+    "@rneui/themed": "^4.0.0-rc.8",
     "@tanstack/react-query": "^5.17.5",
     "@tanstack/react-query-devtools": "^5.17.5",
     "expo": "~49.0.15",

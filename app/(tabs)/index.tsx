@@ -20,6 +20,7 @@ export default function HomeScreen() {
   const { data, isLoading, isError, refetch } = useQuery<Post[]>({
     queryKey: ["todos"],
     queryFn: async () => {
+      console.log("fetched todos");
       const resp = await fetch("https://jsonplaceholder.typicode.com/posts");
       if (!resp.ok) throw new Error("something went wrong!");
       return await resp.json();
