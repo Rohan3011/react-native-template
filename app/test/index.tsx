@@ -8,7 +8,7 @@ const TestScreen = () => {
     <View style={{ display: "flex", width: "100%", alignItems: "center" }}>
       <Text>TestScreen</Text>
       <Animated.View
-        className="px-8 py-4 w-[200px] h-[100px] mt-10 bg-blue-500 rounded shadow-xl"
+        className="px-8 py-4 w-[200px] h-[100px] mt-10 bg-red-500 rounded shadow-xl"
         style={{ backgroundColor: "red" }}
       >
         <Pressable onPress={() => console.log("clicked")}>
