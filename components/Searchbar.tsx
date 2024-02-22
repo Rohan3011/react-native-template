@@ -14,10 +14,7 @@ const SearchBar = () => {
   const [text, onChangeText] = React.useState("");
 
   return (
-    <View
-      // style={styles.container}
-      className="w-full p-4 flex flex-row justify-center items-center space-x-2"
-    >
+    <View className="w-full p-4 flex flex-row justify-center items-center space-x-2">
       <TextInput
         onChangeText={onChangeText}
         value={text}

@@ -22,7 +22,8 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#0000"
-      }
+      },
+      "package": "com.rohanop.myapp"
     },
     "web": {
       "bundler": "metro",
@@ -42,6 +43,12 @@
       "eas": {
         "projectId": "c5bc4c8c-6ccd-43dc-8219-d179aafd192f"
       }
+    },
+    "runtimeVersion": {
+      "policy": "appVersion"
+    },
+    "updates": {
+      "url": "https://u.expo.dev/c5bc4c8c-6ccd-43dc-8219-d179aafd192f"
     }
   }
 }
